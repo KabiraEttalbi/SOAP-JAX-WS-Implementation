@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.example.com/" xmlns:tns="http://service.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="billet" type="tns:billet"/>
+
+  <xs:element name="connecterUtilisateur" type="tns:connecterUtilisateur"/>
+
+  <xs:element name="connecterUtilisateurResponse" type="tns:connecterUtilisateurResponse"/>
+
+  <xs:element name="evenement" type="tns:evenement"/>
+
+  <xs:element name="getReservationsUtilisateur" type="tns:getReservationsUtilisateur"/>
+
+  <xs:element name="getReservationsUtilisateurResponse" type="tns:getReservationsUtilisateurResponse"/>
+
+  <xs:element name="getUtilisateurById" type="tns:getUtilisateurById"/>
+
+  <xs:element name="getUtilisateurByIdResponse" type="tns:getUtilisateurByIdResponse"/>
+
+  <xs:element name="getUtilisateurs" type="tns:getUtilisateurs"/>
+
+  <xs:element name="getUtilisateursResponse" type="tns:getUtilisateursResponse"/>
+
+  <xs:element name="inscrireUtilisateur" type="tns:inscrireUtilisateur"/>
+
+  <xs:element name="inscrireUtilisateurResponse" type="tns:inscrireUtilisateurResponse"/>
+
+  <xs:element name="modifierUtilisateur" type="tns:modifierUtilisateur"/>
+
+  <xs:element name="modifierUtilisateurResponse" type="tns:modifierUtilisateurResponse"/>
+
+  <xs:element name="reservation" type="tns:reservation"/>
+
+  <xs:element name="supprimerUtilisateur" type="tns:supprimerUtilisateur"/>
+
+  <xs:element name="supprimerUtilisateurResponse" type="tns:supprimerUtilisateurResponse"/>
+
+  <xs:element name="utilisateur" type="tns:utilisateur"/>
+
+  <xs:complexType name="supprimerUtilisateur">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="supprimerUtilisateurResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUtilisateurs">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getUtilisateursResponse">
+    <xs:sequence>
+      <xs:element name="utilisateurs" type="tns:utilisateur" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="utilisateur">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="motDePasse" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUtilisateurById">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getUtilisateurByIdResponse">
+    <xs:sequence>
+      <xs:element name="utilisateur" type="tns:utilisateur" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierUtilisateur">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="nom" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="motDePasse" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierUtilisateurResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="inscrireUtilisateur">
+    <xs:sequence>
+      <xs:element name="nom" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="motDePasse" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="inscrireUtilisateurResponse">
+    <xs:sequence>
+      <xs:element name="utilisateur" type="tns:utilisateur" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReservationsUtilisateur">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReservationsUtilisateurResponse">
+    <xs:sequence>
+      <xs:element name="reservations" type="tns:reservation" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reservation">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="utilisateur" type="tns:utilisateur"/>
+      <xs:element name="billet" type="tns:billet"/>
+      <xs:element name="dateReservation" type="xs:dateTime"/>
+      <xs:element name="statut" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="billet">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="evenement" type="tns:evenement"/>
+      <xs:element name="categorie" type="xs:string"/>
+      <xs:element name="prix" type="xs:decimal"/>
+      <xs:element name="disponible" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="evenement">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="lieu" type="xs:string"/>
+      <xs:element name="date" type="xs:dateTime"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="capaciteMax" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="connecterUtilisateur">
+    <xs:sequence>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="motDePasse" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="connecterUtilisateurResponse">
+    <xs:sequence>
+      <xs:element name="utilisateur" type="tns:utilisateur" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

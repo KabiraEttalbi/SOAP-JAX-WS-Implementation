@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>reservation</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sun.xml.messaging.saaj</groupId>
+            <artifactId>saaj-impl</artifactId>
+            <version>1.5.3</version>
+        </dependency>
+
+        <!-- JAX-WS API -->
+        <dependency>
+            <groupId>javax.xml.ws</groupId>
+            <artifactId>jaxws-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <!-- JAX-WS Implementation -->
+        <dependency>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>2.3.4</version> 
+        </dependency>
+
+        <!-- JPA API -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+        <!-- MySQL Driver -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>2.3.3</version>
+                <executions>
+                    <!-- BilletService -->
+                    <execution>
+                        <id>wsgen-billetservice</id>
+                        <goals>
+                            <goal>wsgen</goal>
+                        </goals>
+                        <configuration>
+                            <sei>com.example.service.BilletServiceImpl</sei>
+                            <genWsdl>true</genWsdl>
+                            <keep>true</keep>
+                            <resourceDestDir>
+                                ${project.build.directory}/generated-sources/wsdl/billetservice</resourceDestDir>
+                        </configuration>
+                    </execution>
+
+                    <!-- EvenementService -->
+                    <execution>
+                        <id>wsgen-evenementservice</id>
+                        <goals>
+                            <goal>wsgen</goal>
+                        </goals>
+                        <configuration>
+                            <sei>com.example.service.EvenementServiceImpl</sei>
+                            <genWsdl>true</genWsdl>
+                            <keep>true</keep>
+                            <resourceDestDir>
+                                ${project.build.directory}/generated-sources/wsdl/evenementservice</resourceDestDir>
+                        </configuration>
+                    </execution>
+
+                    <!-- ReservationService -->
+                    <execution>
+                        <id>wsgen-reservationservice</id>
+                        <goals>
+                            <goal>wsgen</goal>
+                        </goals>
+                        <configuration>
+                            <sei>com.example.service.ReservationServiceImpl</sei>
+                            <genWsdl>true</genWsdl>
+                            <keep>true</keep>
+                            <resourceDestDir>
+                                ${project.build.directory}/generated-sources/wsdl/reservationservice</resourceDestDir>
+                        </configuration>
+                    </execution>
+
+                    <!-- UtilisateurService -->
+                    <execution>
+                        <id>wsgen-utilisateurservice</id>
+                        <goals>
+                            <goal>wsgen</goal>
+                        </goals>
+                        <configuration>
+                            <sei>com.example.service.UtilisateurServiceImpl</sei>
+                            <genWsdl>true</genWsdl>
+                            <keep>true</keep>
+                            <resourceDestDir>
+                                ${project.build.directory}/generated-sources/wsdl/utilisateurservice</resourceDestDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>com.example.Main</mainClass>
+                    <classpathScope>compile</classpathScope>
+                    <arguments>
+                        <argument>--add-opens</argument>
+                        <argument>java.base/jdk.internal.misc=ALL-UNNAMED</argument>
+                        <argument>--add-opens</argument>
+                        <argument>java.base/java.lang=ALL-UNNAMED</argument>
+                        <argument>--add-opens</argument>
+                        <argument>java.base/java.util=ALL-UNNAMED</argument>
+                        <argument>--add-exports</argument>
+                        <argument>java.base/jdk.internal.misc=ALL-UNNAMED</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

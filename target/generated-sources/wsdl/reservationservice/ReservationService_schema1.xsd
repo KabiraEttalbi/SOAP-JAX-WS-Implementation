@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.example.com/" xmlns:tns="http://service.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="annulerReservation" type="tns:annulerReservation"/>
+
+  <xs:element name="annulerReservationResponse" type="tns:annulerReservationResponse"/>
+
+  <xs:element name="billet" type="tns:billet"/>
+
+  <xs:element name="evenement" type="tns:evenement"/>
+
+  <xs:element name="getAllReservations" type="tns:getAllReservations"/>
+
+  <xs:element name="getAllReservationsResponse" type="tns:getAllReservationsResponse"/>
+
+  <xs:element name="getReservationById" type="tns:getReservationById"/>
+
+  <xs:element name="getReservationByIdResponse" type="tns:getReservationByIdResponse"/>
+
+  <xs:element name="modifierReservation" type="tns:modifierReservation"/>
+
+  <xs:element name="modifierReservationResponse" type="tns:modifierReservationResponse"/>
+
+  <xs:element name="reservation" type="tns:reservation"/>
+
+  <xs:element name="reserverBillet" type="tns:reserverBillet"/>
+
+  <xs:element name="reserverBilletResponse" type="tns:reserverBilletResponse"/>
+
+  <xs:element name="utilisateur" type="tns:utilisateur"/>
+
+  <xs:complexType name="reserverBillet">
+    <xs:sequence>
+      <xs:element name="utilisateur" type="tns:utilisateur" minOccurs="0"/>
+      <xs:element name="billet" type="tns:billet" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="utilisateur">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="email" type="xs:string"/>
+      <xs:element name="motDePasse" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="billet">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="evenement" type="tns:evenement"/>
+      <xs:element name="categorie" type="xs:string"/>
+      <xs:element name="prix" type="xs:decimal"/>
+      <xs:element name="disponible" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="evenement">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="lieu" type="xs:string"/>
+      <xs:element name="date" type="xs:dateTime"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="capaciteMax" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reserverBilletResponse">
+    <xs:sequence>
+      <xs:element name="reservation" type="tns:reservation" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="reservation">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="utilisateur" type="tns:utilisateur"/>
+      <xs:element name="billet" type="tns:billet"/>
+      <xs:element name="dateReservation" type="xs:dateTime"/>
+      <xs:element name="statut" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllReservations">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllReservationsResponse">
+    <xs:sequence>
+      <xs:element name="reservations" type="tns:reservation" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierReservation">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="statut" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierReservationResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReservationById">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getReservationByIdResponse">
+    <xs:sequence>
+      <xs:element name="reservation" type="tns:reservation" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="annulerReservation">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="annulerReservationResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

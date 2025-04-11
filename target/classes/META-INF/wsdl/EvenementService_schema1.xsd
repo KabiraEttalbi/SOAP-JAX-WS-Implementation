@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.example.com/" xmlns:tns="http://service.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="billet" type="tns:billet"/>
+
+  <xs:element name="creerEvenement" type="tns:creerEvenement"/>
+
+  <xs:element name="creerEvenementResponse" type="tns:creerEvenementResponse"/>
+
+  <xs:element name="evenement" type="tns:evenement"/>
+
+  <xs:element name="getBilletsByEvenement" type="tns:getBilletsByEvenement"/>
+
+  <xs:element name="getBilletsByEvenementResponse" type="tns:getBilletsByEvenementResponse"/>
+
+  <xs:element name="getEvenementById" type="tns:getEvenementById"/>
+
+  <xs:element name="getEvenementByIdResponse" type="tns:getEvenementByIdResponse"/>
+
+  <xs:element name="getEvenements" type="tns:getEvenements"/>
+
+  <xs:element name="getEvenementsResponse" type="tns:getEvenementsResponse"/>
+
+  <xs:element name="getNombreReservationsParEvenement" type="tns:getNombreReservationsParEvenement"/>
+
+  <xs:element name="getNombreReservationsParEvenementResponse" type="tns:getNombreReservationsParEvenementResponse"/>
+
+  <xs:element name="modifierEvenement" type="tns:modifierEvenement"/>
+
+  <xs:element name="modifierEvenementResponse" type="tns:modifierEvenementResponse"/>
+
+  <xs:element name="supprimerEvenement" type="tns:supprimerEvenement"/>
+
+  <xs:element name="supprimerEvenementResponse" type="tns:supprimerEvenementResponse"/>
+
+  <xs:complexType name="supprimerEvenement">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="supprimerEvenementResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getEvenementById">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getEvenementByIdResponse">
+    <xs:sequence>
+      <xs:element name="evenement" type="tns:evenement" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="evenement">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="lieu" type="xs:string"/>
+      <xs:element name="date" type="xs:dateTime"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="capaciteMax" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="creerEvenement">
+    <xs:sequence>
+      <xs:element name="nom" type="xs:string" minOccurs="0"/>
+      <xs:element name="lieu" type="xs:string" minOccurs="0"/>
+      <xs:element name="date" type="tns:date" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="capaciteMax" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="date">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="creerEvenementResponse">
+    <xs:sequence>
+      <xs:element name="evenement" type="tns:evenement" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierEvenement">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="nom" type="xs:string" minOccurs="0"/>
+      <xs:element name="lieu" type="xs:string" minOccurs="0"/>
+      <xs:element name="date" type="tns:date" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="capaciteMax" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierEvenementResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBilletsByEvenement">
+    <xs:sequence>
+      <xs:element name="evenementId" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBilletsByEvenementResponse">
+    <xs:sequence>
+      <xs:element name="billets" type="tns:billet" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="billet">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="evenement" type="tns:evenement"/>
+      <xs:element name="categorie" type="xs:string"/>
+      <xs:element name="prix" type="xs:decimal"/>
+      <xs:element name="disponible" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getEvenements">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getEvenementsResponse">
+    <xs:sequence>
+      <xs:element name="evenements" type="tns:evenement" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNombreReservationsParEvenement">
+    <xs:sequence>
+      <xs:element name="evenementId" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNombreReservationsParEvenementResponse">
+    <xs:sequence>
+      <xs:element name="nombreReservations" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

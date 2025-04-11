@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.example.com/" xmlns:tns="http://service.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="billet" type="tns:billet"/>
+
+  <xs:element name="creerBillet" type="tns:creerBillet"/>
+
+  <xs:element name="creerBilletResponse" type="tns:creerBilletResponse"/>
+
+  <xs:element name="creerBilletsEnMasse" type="tns:creerBilletsEnMasse"/>
+
+  <xs:element name="creerBilletsEnMasseResponse" type="tns:creerBilletsEnMasseResponse"/>
+
+  <xs:element name="evenement" type="tns:evenement"/>
+
+  <xs:element name="getBilletById" type="tns:getBilletById"/>
+
+  <xs:element name="getBilletByIdResponse" type="tns:getBilletByIdResponse"/>
+
+  <xs:element name="getBillets" type="tns:getBillets"/>
+
+  <xs:element name="getBilletsResponse" type="tns:getBilletsResponse"/>
+
+  <xs:element name="modifierBillet" type="tns:modifierBillet"/>
+
+  <xs:element name="modifierBilletResponse" type="tns:modifierBilletResponse"/>
+
+  <xs:element name="supprimerBillet" type="tns:supprimerBillet"/>
+
+  <xs:element name="supprimerBilletResponse" type="tns:supprimerBilletResponse"/>
+
+  <xs:complexType name="creerBillet">
+    <xs:sequence>
+      <xs:element name="evenementId" type="xs:long" minOccurs="0"/>
+      <xs:element name="categorie" type="xs:string" minOccurs="0"/>
+      <xs:element name="prix" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="disponible" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="creerBilletResponse">
+    <xs:sequence>
+      <xs:element name="billet" type="tns:billet" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="billet">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="evenement" type="tns:evenement"/>
+      <xs:element name="categorie" type="xs:string"/>
+      <xs:element name="prix" type="xs:decimal"/>
+      <xs:element name="disponible" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="evenement">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="nom" type="xs:string"/>
+      <xs:element name="lieu" type="xs:string"/>
+      <xs:element name="date" type="xs:dateTime"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="capaciteMax" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBilletById">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBilletByIdResponse">
+    <xs:sequence>
+      <xs:element name="billet" type="tns:billet" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="creerBilletsEnMasse">
+    <xs:sequence>
+      <xs:element name="evenementId" type="xs:long" minOccurs="0"/>
+      <xs:element name="categorie" type="xs:string" minOccurs="0"/>
+      <xs:element name="prix" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="nombreBillets" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="creerBilletsEnMasseResponse">
+    <xs:sequence>
+      <xs:element name="nombreBilletsCrees" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getBillets">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getBilletsResponse">
+    <xs:sequence>
+      <xs:element name="billets" type="tns:billet" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierBillet">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="categorie" type="xs:string" minOccurs="0"/>
+      <xs:element name="prix" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="disponible" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="modifierBilletResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="supprimerBillet">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="supprimerBilletResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
