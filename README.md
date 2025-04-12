@@ -85,13 +85,16 @@ private static final String USER = "votre_utilisateur";
 private static final String PASSWORD = "votre_mot_de_passe";
 ```
 
-### 3. Compiler le projet
+### 3. Compilation du projet et Généretion des WSDL
+
+Pour générer les fichiers WSDL des services :
 
 ```shellscript
 mvn clean compile
 ```
+Les fichiers WSDL seront générés dans le répertoire `target/generated-sources/wsdl/`.
 
-## Exécution
+## Exécution 
 
 Pour démarrer l'application et publier les services SOAP :
 
@@ -106,16 +109,6 @@ Les services seront disponibles aux adresses suivantes :
 - Service Billet : [http://localhost:8080/billetservice](http://localhost:8080/billetservice)
 - Service Réservation : [http://localhost:8080/reservationservice](http://localhost:8080/reservationservice)
 
-
-## Génération des WSDL
-
-Pour générer les fichiers WSDL des services :
-
-```shellscript
-mvn clean compile
-```
-
-Les fichiers WSDL seront générés dans le répertoire `target/generated-sources/wsdl/`.
 
 ## Test des services
 
