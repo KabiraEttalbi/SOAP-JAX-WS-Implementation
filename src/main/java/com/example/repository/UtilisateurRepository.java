@@ -99,22 +99,6 @@ public class UtilisateurRepository {
         return utilisateurs;
     }
 
-    // Si le champ role a été ajouté à la table utilisateurs
-    public boolean updateRole(Long id, String role) {
-        String sql = "UPDATE utilisateurs SET role = ? WHERE id = ?";
-
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, role);
-            stmt.setLong(2, id);
-
-            int affectedRows = stmt.executeUpdate();
-            return affectedRows > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
     public Utilisateur save(Utilisateur utilisateur) {
         String sql = "INSERT INTO utilisateurs (nom, email, mot_de_passe) VALUES (?, ?, ?)";
 

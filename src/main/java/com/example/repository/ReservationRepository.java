@@ -92,26 +92,6 @@ public class ReservationRepository {
         return reservations;
     }
 
-    public List<Reservation> findByPeriode(Date dateDebut, Date dateFin) {
-        List<Reservation> reservations = new ArrayList<>();
-        String sql = "SELECT * FROM reservations WHERE date_reservation BETWEEN ? AND ?";
-
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setTimestamp(1, new Timestamp(dateDebut.getTime()));
-            stmt.setTimestamp(2, new Timestamp(dateFin.getTime()));
-
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    reservations.add(mapResultSetToReservation(rs));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return reservations;
-    }
-
     public Reservation save(Reservation reservation) {
         String sql = "INSERT INTO reservations (utilisateur_id, billet_id, date_reservation, statut) VALUES (?, ?, ?, ?)";
 

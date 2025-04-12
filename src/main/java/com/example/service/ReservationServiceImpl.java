@@ -26,23 +26,19 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public Reservation reserverBillet(Utilisateur utilisateur, Billet billet) {
-        // Vérifier si le billet est disponible
         Billet billetDb = billetRepository.findById(billet.getId());
         if (billetDb == null || !billetDb.isDisponible()) {
             return null;
         }
 
-        // Vérifier si l'utilisateur existe
         Utilisateur utilisateurDb = utilisateurRepository.findById(utilisateur.getId());
         if (utilisateurDb == null) {
             return null;
         }
 
-        // Créer la réservation
         Reservation reservation = new Reservation(utilisateurDb, billetDb, new Date(), "CONFIRMÉ");
         reservation = reservationRepository.save(reservation);
 
-        // Mettre à jour le statut du billet
         billetDb.setDisponible(false);
         billetRepository.update(billetDb);
 
