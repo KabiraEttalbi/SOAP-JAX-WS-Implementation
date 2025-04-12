@@ -6,29 +6,11 @@
       <xsd:import namespace="http://service.example.com/" schemaLocation="ReservationService_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="modifierReservation">
-    <part name="parameters" element="tns:modifierReservation"/>
-  </message>
-  <message name="modifierReservationResponse">
-    <part name="parameters" element="tns:modifierReservationResponse"/>
-  </message>
-  <message name="annulerReservation">
-    <part name="parameters" element="tns:annulerReservation"/>
-  </message>
-  <message name="annulerReservationResponse">
-    <part name="parameters" element="tns:annulerReservationResponse"/>
-  </message>
   <message name="getAllReservations">
     <part name="parameters" element="tns:getAllReservations"/>
   </message>
   <message name="getAllReservationsResponse">
     <part name="parameters" element="tns:getAllReservationsResponse"/>
-  </message>
-  <message name="getReservationById">
-    <part name="parameters" element="tns:getReservationById"/>
-  </message>
-  <message name="getReservationByIdResponse">
-    <part name="parameters" element="tns:getReservationByIdResponse"/>
   </message>
   <message name="reserverBillet">
     <part name="parameters" element="tns:reserverBillet"/>
@@ -36,31 +18,58 @@
   <message name="reserverBilletResponse">
     <part name="parameters" element="tns:reserverBilletResponse"/>
   </message>
+  <message name="annulerReservation">
+    <part name="parameters" element="tns:annulerReservation"/>
+  </message>
+  <message name="annulerReservationResponse">
+    <part name="parameters" element="tns:annulerReservationResponse"/>
+  </message>
+  <message name="getReservationById">
+    <part name="parameters" element="tns:getReservationById"/>
+  </message>
+  <message name="getReservationByIdResponse">
+    <part name="parameters" element="tns:getReservationByIdResponse"/>
+  </message>
+  <message name="modifierReservation">
+    <part name="parameters" element="tns:modifierReservation"/>
+  </message>
+  <message name="modifierReservationResponse">
+    <part name="parameters" element="tns:modifierReservationResponse"/>
+  </message>
   <portType name="ReservationService">
-    <operation name="modifierReservation">
-      <input wsam:Action="http://service.example.com/ReservationService/modifierReservationRequest" message="tns:modifierReservation"/>
-      <output wsam:Action="http://service.example.com/ReservationService/modifierReservationResponse" message="tns:modifierReservationResponse"/>
-    </operation>
-    <operation name="annulerReservation">
-      <input wsam:Action="http://service.example.com/ReservationService/annulerReservationRequest" message="tns:annulerReservation"/>
-      <output wsam:Action="http://service.example.com/ReservationService/annulerReservationResponse" message="tns:annulerReservationResponse"/>
-    </operation>
     <operation name="getAllReservations">
       <input wsam:Action="http://service.example.com/ReservationService/getAllReservationsRequest" message="tns:getAllReservations"/>
       <output wsam:Action="http://service.example.com/ReservationService/getAllReservationsResponse" message="tns:getAllReservationsResponse"/>
-    </operation>
-    <operation name="getReservationById">
-      <input wsam:Action="http://service.example.com/ReservationService/getReservationByIdRequest" message="tns:getReservationById"/>
-      <output wsam:Action="http://service.example.com/ReservationService/getReservationByIdResponse" message="tns:getReservationByIdResponse"/>
     </operation>
     <operation name="reserverBillet">
       <input wsam:Action="http://service.example.com/ReservationService/reserverBilletRequest" message="tns:reserverBillet"/>
       <output wsam:Action="http://service.example.com/ReservationService/reserverBilletResponse" message="tns:reserverBilletResponse"/>
     </operation>
+    <operation name="annulerReservation">
+      <input wsam:Action="http://service.example.com/ReservationService/annulerReservationRequest" message="tns:annulerReservation"/>
+      <output wsam:Action="http://service.example.com/ReservationService/annulerReservationResponse" message="tns:annulerReservationResponse"/>
+    </operation>
+    <operation name="getReservationById">
+      <input wsam:Action="http://service.example.com/ReservationService/getReservationByIdRequest" message="tns:getReservationById"/>
+      <output wsam:Action="http://service.example.com/ReservationService/getReservationByIdResponse" message="tns:getReservationByIdResponse"/>
+    </operation>
+    <operation name="modifierReservation">
+      <input wsam:Action="http://service.example.com/ReservationService/modifierReservationRequest" message="tns:modifierReservation"/>
+      <output wsam:Action="http://service.example.com/ReservationService/modifierReservationResponse" message="tns:modifierReservationResponse"/>
+    </operation>
   </portType>
   <binding name="ReservationServicePortBinding" type="tns:ReservationService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="modifierReservation">
+    <operation name="getAllReservations">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="reserverBillet">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -78,15 +87,6 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="getAllReservations">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
     <operation name="getReservationById">
       <soap:operation soapAction=""/>
       <input>
@@ -96,7 +96,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="reserverBillet">
+    <operation name="modifierReservation">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>

@@ -29,16 +29,13 @@
 
   <xs:element name="supprimerBilletResponse" type="tns:supprimerBilletResponse"/>
 
-  <xs:complexType name="creerBillet">
+  <xs:complexType name="getBilletById">
     <xs:sequence>
-      <xs:element name="evenementId" type="xs:long" minOccurs="0"/>
-      <xs:element name="categorie" type="xs:string" minOccurs="0"/>
-      <xs:element name="prix" type="xs:decimal" minOccurs="0"/>
-      <xs:element name="disponible" type="xs:boolean"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="creerBilletResponse">
+  <xs:complexType name="getBilletByIdResponse">
     <xs:sequence>
       <xs:element name="billet" type="tns:billet" minOccurs="0"/>
     </xs:sequence>
@@ -65,13 +62,16 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="getBilletById">
+  <xs:complexType name="creerBillet">
     <xs:sequence>
-      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="evenementId" type="xs:long" minOccurs="0"/>
+      <xs:element name="categorie" type="xs:string" minOccurs="0"/>
+      <xs:element name="prix" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="disponible" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="getBilletByIdResponse">
+  <xs:complexType name="creerBilletResponse">
     <xs:sequence>
       <xs:element name="billet" type="tns:billet" minOccurs="0"/>
     </xs:sequence>

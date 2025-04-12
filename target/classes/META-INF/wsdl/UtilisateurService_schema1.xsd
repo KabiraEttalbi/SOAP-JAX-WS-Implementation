@@ -80,6 +80,20 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="inscrireUtilisateur">
+    <xs:sequence>
+      <xs:element name="nom" type="xs:string" minOccurs="0"/>
+      <xs:element name="email" type="xs:string" minOccurs="0"/>
+      <xs:element name="motDePasse" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="inscrireUtilisateurResponse">
+    <xs:sequence>
+      <xs:element name="utilisateur" type="tns:utilisateur" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="modifierUtilisateur">
     <xs:sequence>
       <xs:element name="id" type="xs:long" minOccurs="0"/>
@@ -95,15 +109,14 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="inscrireUtilisateur">
+  <xs:complexType name="connecterUtilisateur">
     <xs:sequence>
-      <xs:element name="nom" type="xs:string" minOccurs="0"/>
       <xs:element name="email" type="xs:string" minOccurs="0"/>
       <xs:element name="motDePasse" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="inscrireUtilisateurResponse">
+  <xs:complexType name="connecterUtilisateurResponse">
     <xs:sequence>
       <xs:element name="utilisateur" type="tns:utilisateur" minOccurs="0"/>
     </xs:sequence>
@@ -149,19 +162,6 @@
       <xs:element name="date" type="xs:dateTime"/>
       <xs:element name="description" type="xs:string"/>
       <xs:element name="capaciteMax" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="connecterUtilisateur">
-    <xs:sequence>
-      <xs:element name="email" type="xs:string" minOccurs="0"/>
-      <xs:element name="motDePasse" type="xs:string" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="connecterUtilisateurResponse">
-    <xs:sequence>
-      <xs:element name="utilisateur" type="tns:utilisateur" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

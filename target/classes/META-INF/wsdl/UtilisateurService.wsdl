@@ -6,35 +6,17 @@
       <xsd:import namespace="http://service.example.com/" schemaLocation="UtilisateurService_schema1.xsd"/>
     </xsd:schema>
   </types>
-  <message name="getUtilisateurById">
-    <part name="parameters" element="tns:getUtilisateurById"/>
-  </message>
-  <message name="getUtilisateurByIdResponse">
-    <part name="parameters" element="tns:getUtilisateurByIdResponse"/>
-  </message>
   <message name="getUtilisateurs">
     <part name="parameters" element="tns:getUtilisateurs"/>
   </message>
   <message name="getUtilisateursResponse">
     <part name="parameters" element="tns:getUtilisateursResponse"/>
   </message>
-  <message name="modifierUtilisateur">
-    <part name="parameters" element="tns:modifierUtilisateur"/>
+  <message name="getUtilisateurById">
+    <part name="parameters" element="tns:getUtilisateurById"/>
   </message>
-  <message name="modifierUtilisateurResponse">
-    <part name="parameters" element="tns:modifierUtilisateurResponse"/>
-  </message>
-  <message name="getReservationsUtilisateur">
-    <part name="parameters" element="tns:getReservationsUtilisateur"/>
-  </message>
-  <message name="getReservationsUtilisateurResponse">
-    <part name="parameters" element="tns:getReservationsUtilisateurResponse"/>
-  </message>
-  <message name="supprimerUtilisateur">
-    <part name="parameters" element="tns:supprimerUtilisateur"/>
-  </message>
-  <message name="supprimerUtilisateurResponse">
-    <part name="parameters" element="tns:supprimerUtilisateurResponse"/>
+  <message name="getUtilisateurByIdResponse">
+    <part name="parameters" element="tns:getUtilisateurByIdResponse"/>
   </message>
   <message name="inscrireUtilisateur">
     <part name="parameters" element="tns:inscrireUtilisateur"/>
@@ -42,53 +24,62 @@
   <message name="inscrireUtilisateurResponse">
     <part name="parameters" element="tns:inscrireUtilisateurResponse"/>
   </message>
+  <message name="modifierUtilisateur">
+    <part name="parameters" element="tns:modifierUtilisateur"/>
+  </message>
+  <message name="modifierUtilisateurResponse">
+    <part name="parameters" element="tns:modifierUtilisateurResponse"/>
+  </message>
+  <message name="supprimerUtilisateur">
+    <part name="parameters" element="tns:supprimerUtilisateur"/>
+  </message>
+  <message name="supprimerUtilisateurResponse">
+    <part name="parameters" element="tns:supprimerUtilisateurResponse"/>
+  </message>
   <message name="connecterUtilisateur">
     <part name="parameters" element="tns:connecterUtilisateur"/>
   </message>
   <message name="connecterUtilisateurResponse">
     <part name="parameters" element="tns:connecterUtilisateurResponse"/>
   </message>
+  <message name="getReservationsUtilisateur">
+    <part name="parameters" element="tns:getReservationsUtilisateur"/>
+  </message>
+  <message name="getReservationsUtilisateurResponse">
+    <part name="parameters" element="tns:getReservationsUtilisateurResponse"/>
+  </message>
   <portType name="UtilisateurService">
-    <operation name="getUtilisateurById">
-      <input wsam:Action="http://service.example.com/UtilisateurService/getUtilisateurByIdRequest" message="tns:getUtilisateurById"/>
-      <output wsam:Action="http://service.example.com/UtilisateurService/getUtilisateurByIdResponse" message="tns:getUtilisateurByIdResponse"/>
-    </operation>
     <operation name="getUtilisateurs">
       <input wsam:Action="http://service.example.com/UtilisateurService/getUtilisateursRequest" message="tns:getUtilisateurs"/>
       <output wsam:Action="http://service.example.com/UtilisateurService/getUtilisateursResponse" message="tns:getUtilisateursResponse"/>
     </operation>
-    <operation name="modifierUtilisateur">
-      <input wsam:Action="http://service.example.com/UtilisateurService/modifierUtilisateurRequest" message="tns:modifierUtilisateur"/>
-      <output wsam:Action="http://service.example.com/UtilisateurService/modifierUtilisateurResponse" message="tns:modifierUtilisateurResponse"/>
-    </operation>
-    <operation name="getReservationsUtilisateur">
-      <input wsam:Action="http://service.example.com/UtilisateurService/getReservationsUtilisateurRequest" message="tns:getReservationsUtilisateur"/>
-      <output wsam:Action="http://service.example.com/UtilisateurService/getReservationsUtilisateurResponse" message="tns:getReservationsUtilisateurResponse"/>
-    </operation>
-    <operation name="supprimerUtilisateur">
-      <input wsam:Action="http://service.example.com/UtilisateurService/supprimerUtilisateurRequest" message="tns:supprimerUtilisateur"/>
-      <output wsam:Action="http://service.example.com/UtilisateurService/supprimerUtilisateurResponse" message="tns:supprimerUtilisateurResponse"/>
+    <operation name="getUtilisateurById">
+      <input wsam:Action="http://service.example.com/UtilisateurService/getUtilisateurByIdRequest" message="tns:getUtilisateurById"/>
+      <output wsam:Action="http://service.example.com/UtilisateurService/getUtilisateurByIdResponse" message="tns:getUtilisateurByIdResponse"/>
     </operation>
     <operation name="inscrireUtilisateur">
       <input wsam:Action="http://service.example.com/UtilisateurService/inscrireUtilisateurRequest" message="tns:inscrireUtilisateur"/>
       <output wsam:Action="http://service.example.com/UtilisateurService/inscrireUtilisateurResponse" message="tns:inscrireUtilisateurResponse"/>
     </operation>
+    <operation name="modifierUtilisateur">
+      <input wsam:Action="http://service.example.com/UtilisateurService/modifierUtilisateurRequest" message="tns:modifierUtilisateur"/>
+      <output wsam:Action="http://service.example.com/UtilisateurService/modifierUtilisateurResponse" message="tns:modifierUtilisateurResponse"/>
+    </operation>
+    <operation name="supprimerUtilisateur">
+      <input wsam:Action="http://service.example.com/UtilisateurService/supprimerUtilisateurRequest" message="tns:supprimerUtilisateur"/>
+      <output wsam:Action="http://service.example.com/UtilisateurService/supprimerUtilisateurResponse" message="tns:supprimerUtilisateurResponse"/>
+    </operation>
     <operation name="connecterUtilisateur">
       <input wsam:Action="http://service.example.com/UtilisateurService/connecterUtilisateurRequest" message="tns:connecterUtilisateur"/>
       <output wsam:Action="http://service.example.com/UtilisateurService/connecterUtilisateurResponse" message="tns:connecterUtilisateurResponse"/>
     </operation>
+    <operation name="getReservationsUtilisateur">
+      <input wsam:Action="http://service.example.com/UtilisateurService/getReservationsUtilisateurRequest" message="tns:getReservationsUtilisateur"/>
+      <output wsam:Action="http://service.example.com/UtilisateurService/getReservationsUtilisateurResponse" message="tns:getReservationsUtilisateurResponse"/>
+    </operation>
   </portType>
   <binding name="UtilisateurServicePortBinding" type="tns:UtilisateurService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="getUtilisateurById">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
     <operation name="getUtilisateurs">
       <soap:operation soapAction=""/>
       <input>
@@ -98,25 +89,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="modifierUtilisateur">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="getReservationsUtilisateur">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="supprimerUtilisateur">
+    <operation name="getUtilisateurById">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -134,7 +107,34 @@
         <soap:body use="literal"/>
       </output>
     </operation>
+    <operation name="modifierUtilisateur">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="supprimerUtilisateur">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
     <operation name="connecterUtilisateur">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getReservationsUtilisateur">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>

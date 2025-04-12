@@ -12,6 +12,18 @@
   <message name="getBilletsResponse">
     <part name="parameters" element="tns:getBilletsResponse"/>
   </message>
+  <message name="creerBilletsEnMasse">
+    <part name="parameters" element="tns:creerBilletsEnMasse"/>
+  </message>
+  <message name="creerBilletsEnMasseResponse">
+    <part name="parameters" element="tns:creerBilletsEnMasseResponse"/>
+  </message>
+  <message name="getBilletById">
+    <part name="parameters" element="tns:getBilletById"/>
+  </message>
+  <message name="getBilletByIdResponse">
+    <part name="parameters" element="tns:getBilletByIdResponse"/>
+  </message>
   <message name="creerBillet">
     <part name="parameters" element="tns:creerBillet"/>
   </message>
@@ -30,22 +42,18 @@
   <message name="supprimerBilletResponse">
     <part name="parameters" element="tns:supprimerBilletResponse"/>
   </message>
-  <message name="getBilletById">
-    <part name="parameters" element="tns:getBilletById"/>
-  </message>
-  <message name="getBilletByIdResponse">
-    <part name="parameters" element="tns:getBilletByIdResponse"/>
-  </message>
-  <message name="creerBilletsEnMasse">
-    <part name="parameters" element="tns:creerBilletsEnMasse"/>
-  </message>
-  <message name="creerBilletsEnMasseResponse">
-    <part name="parameters" element="tns:creerBilletsEnMasseResponse"/>
-  </message>
   <portType name="BilletService">
     <operation name="getBillets">
       <input wsam:Action="http://service.example.com/BilletService/getBilletsRequest" message="tns:getBillets"/>
       <output wsam:Action="http://service.example.com/BilletService/getBilletsResponse" message="tns:getBilletsResponse"/>
+    </operation>
+    <operation name="creerBilletsEnMasse">
+      <input wsam:Action="http://service.example.com/BilletService/creerBilletsEnMasseRequest" message="tns:creerBilletsEnMasse"/>
+      <output wsam:Action="http://service.example.com/BilletService/creerBilletsEnMasseResponse" message="tns:creerBilletsEnMasseResponse"/>
+    </operation>
+    <operation name="getBilletById">
+      <input wsam:Action="http://service.example.com/BilletService/getBilletByIdRequest" message="tns:getBilletById"/>
+      <output wsam:Action="http://service.example.com/BilletService/getBilletByIdResponse" message="tns:getBilletByIdResponse"/>
     </operation>
     <operation name="creerBillet">
       <input wsam:Action="http://service.example.com/BilletService/creerBilletRequest" message="tns:creerBillet"/>
@@ -59,18 +67,28 @@
       <input wsam:Action="http://service.example.com/BilletService/supprimerBilletRequest" message="tns:supprimerBillet"/>
       <output wsam:Action="http://service.example.com/BilletService/supprimerBilletResponse" message="tns:supprimerBilletResponse"/>
     </operation>
-    <operation name="getBilletById">
-      <input wsam:Action="http://service.example.com/BilletService/getBilletByIdRequest" message="tns:getBilletById"/>
-      <output wsam:Action="http://service.example.com/BilletService/getBilletByIdResponse" message="tns:getBilletByIdResponse"/>
-    </operation>
-    <operation name="creerBilletsEnMasse">
-      <input wsam:Action="http://service.example.com/BilletService/creerBilletsEnMasseRequest" message="tns:creerBilletsEnMasse"/>
-      <output wsam:Action="http://service.example.com/BilletService/creerBilletsEnMasseResponse" message="tns:creerBilletsEnMasseResponse"/>
-    </operation>
   </portType>
   <binding name="BilletServicePortBinding" type="tns:BilletService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
     <operation name="getBillets">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="creerBilletsEnMasse">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getBilletById">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -98,24 +116,6 @@
       </output>
     </operation>
     <operation name="supprimerBillet">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="getBilletById">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="creerBilletsEnMasse">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
